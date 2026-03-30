@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://sourceforge.net" name="invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <parameter name="clienteNombre" class="java.lang.String"/>
+    <field name="descripcion" class="java.lang.String"/>
+    <field name="precio" class="java.lang.Double"/>
+    <title>
+        <band height="60">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement textAlignment="Center"><font size="22" isBold="true"/></textElement>
+                <text><![CDATA[FACTURA DIGITAL]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="40" width="555" height="20"/>
+                <textFieldExpression><![CDATA["CLIENTE: " + $P{clienteNombre}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="400" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Descripción del Servicio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="400" y="0" width="155" height="20"/>
+                <textElement textAlignment="Right"><font isBold="true"/></textElement>
+                <text><![CDATA[Monto]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="400" height="20"/>
+                <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="400" y="0" width="155" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["$" + $F{precio}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
