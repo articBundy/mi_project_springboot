@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: jasper-service
-    env: java
-    buildCommand: mvn clean install -DskipTests
-    startCommand: java -jar target/invoice-app-1.0.0.jar
-    plan: free
